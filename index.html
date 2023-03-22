@@ -1,45 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Aplicativo</title>
 </head>
+
 <body>
+
+    <button id="login" onclick="user.login()">Entrar</button>
+
     <script>
         /*
- Esse é um comentário
- de muitas linhas
- no JavaScript
- */
+        Esse é o código JavaScript dessa página.
+        */
 
-// Cria uma variável chamada "name".
-let name;
+        // Dados do usuário usando variáveis discretas.
+        var name = 'Joca da Silva'
+        var email = 'joca@silva.com'
+        var birth = '2003-03-18'
+        var cpf = '012.345.678-90'
+        var address = 'Rua do Siri Molhado, 22'
 
-// Cria uma variável chamada "email" e já atribui um valor.
-let email = "joca@gmail.com"
+        // Dados do usuário. Forma moderna! Usando notação de objetos.
+        var user = {
 
-// Cria uma variável global chamada "age".
-var age = 29
+            // Atributos do objeto "user".
+            name: 'Joca da Silva',
+            email: 'joca@silva.com',
+            birth: '2003-03-18',
+            cpf: '012.345.678-90',
+            password: '12345',
+            address: 'Rua do Siri Molhado, 22',
 
-// Cria uma constante chamada "CPF".
-const CPF = "012.345.678-90"
+            // Métodos do objeto "user".
+            login: function () {
 
-// Chama a função "getEmail()".
-getEmail();
+                // Recebe o e-mail do prompt e armazena.
+                var userEmail = prompt('Digite seu e-mail:')
 
-document.write(email)
-document.write('<br>' + CPF)
+                // Se o usuário não digitou nada...
+                if (userEmail == "" || userEmail == null) {
+                    alert("Oooops! Você não informou um e-mail...")
+                    // Encerra a função retornando false
+                    return false
+                } else if(userEmail != user.email) {
+                    alert('Oooops! E-mail não cadastrado...')
+                    return false
+                }
 
-// Tenta (mas não consegue) trocar o valor da constante.
-CPF = "000.000.000-00"
+                // Digite a senha.
+                var userPass = prompt('Digite sua senha:')
+                if (userPass == "" || userPass == null) {
+                    alert("Oooops! Você não informou a senha...")
 
-// Função que exibe o valor da variável "email".
-function getEmail() {
-    let email = 'maria@gmail.com'
-    document.write(email + "<br>")
-}
+                    // Encerra a função retornando false
+                    return false
+                }
+
+            },
+            firstName: function () {
+                alert(name.split(' ')[0])
+            }
+        }
+
+        // Chama a função de login.
+        // user.login()
+
     </script>
+
 </body>
+
 </html>
