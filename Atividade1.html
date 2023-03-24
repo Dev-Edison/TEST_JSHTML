@@ -1,0 +1,37 @@
+<script>
+
+    function pulaLinha() {
+        document.write("<br>");
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function mostraTabuada() {
+        mostra(tabuada + " x " + multiplicador + " = " + tabuada * multiplicador);
+    }
+
+    document.write("<h1></h1>");
+
+    for (tabuada = 0; tabuada <=10; tabuada ++) {
+
+        for (multiplicador = 1; multiplicador <=10; multiplicador++) {
+
+            if (multiplicador != 10 && multiplicador != 1) {
+                mostraTabuada();
+            } else {
+                if (multiplicador == 10) {
+                mostraTabuada();
+                document.write("<br>"); 
+                } else {
+                    mostra(" " + tabuada + ":");
+                    mostraTabuada();
+                }
+            }
+        }    
+    }
+
+</script>
