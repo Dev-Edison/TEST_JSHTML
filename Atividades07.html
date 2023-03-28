@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 7</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet">
+</head>
+
+<body>
+
+    <h3><span class="material-icons-two-tone">calendar_month</span> Atividade 7</h3>
+    <p>7) Escreva e teste um algoritmo em JavaScript que exibe um botão na página que, ao ser clicado, solicita a data
+        de nascimento do usuário no formato "dd/mm/aaaa". Na sequência, exibe a idade do usuário no navegador. A idade
+        deve levar em conta o ano, mês e dia de nascimento. Quando concluir, cole todo o código no campo abaixo:</p>
+
+    <!-- Campo de formulário que recebe a entrada do usuário. -->
+    <form onsubmit="trataData(event)">
+        Digite sua data de nascimento: <input type="text" name="databr" id="databr" placeholder="dd/mm/aaaa">
+        <button type="submit">Processar</button><br>
+        <span id="datasis"></span>
+    </form>
+
+    <script>
+
+        function trataData(ev) {
+
+            // Bloqueia a ação normal do formulário quando enviado.
+            ev.preventDefault()
+
+            // Recebe a data do usuário.
+            var dataUsuario = document.getElementById('databr').value
+
+            // Desmonta a data para um array.
+            var partes = dataUsuario.split('/')
+
+            // Obtém a data atual.
+            // "agora" é uma INSTÂNCIA da classe "Date()".
+            var agora = new Date()
+
+            // Extrai as partes da data atual.
+            var dia = agora.getDate()
+            var mes = agora.getMonth() + 1
+            var ano = agora.getFullYear()
+
+            // Calcula a idade pelo ano.
+            var idade = ano - partes[2]
+
+            // Se o mês de nascimento for maior que o mês atual, subtrai 1 da idade.
+            if (partes[1] > mes || partes[1] == mes && partes[0] > dia) {
+                idade--
+            }
+
+            // Escreve a idade no documento.
+            document.getElementById("datasis").innerHTML = `Você tem ${idade} anos.`
+
+        }
+
+    </script>
+
+</body>
+
+</html>
